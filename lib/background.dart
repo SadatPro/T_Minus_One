@@ -4,16 +4,18 @@ class BackGround extends StatelessWidget {
   const BackGround({
     super.key,
     required this.child,
+    required this.image,
   });
 
   final Widget child;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/first.png"),
+          image: AssetImage(image),
           fit: BoxFit.cover,
         ),
       ),

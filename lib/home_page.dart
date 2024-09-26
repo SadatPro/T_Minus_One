@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:t_minus_one/background.dart';
+import 'package:t_minus_one/custome_route.dart';
+import 'package:t_minus_one/level_screen.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -8,6 +10,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BackGround(
+      image: "assets/first.png",
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Padding(
@@ -17,7 +20,7 @@ class HomePage extends StatelessWidget {
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
-                backgroundColor: Colors.teal.withOpacity(.9),
+                backgroundColor: Colors.purple.shade900,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -27,7 +30,14 @@ class HomePage extends StatelessWidget {
                   vertical: 20,
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  CustomRoute(
+                    page: const LevelSelectionScreen(),
+                  ),
+                );
+              },
               child: Text(
                 "Explore the Climate",
                 style: GoogleFonts.khand(
