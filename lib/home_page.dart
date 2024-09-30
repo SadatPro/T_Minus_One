@@ -13,43 +13,57 @@ class HomePage extends StatelessWidget {
       image: "assets/first.png",
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: Padding(
-          padding: const EdgeInsets.only(bottom: 50),
-          child: Align(
-            alignment: Alignment.center,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.white,
-                backgroundColor: Colors.purple.shade900,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                elevation: 30,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 30,
-                  vertical: 20,
-                ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Align(
+              alignment: Alignment.center,
+              child: Image.asset(
+                "assets/nishat.png",
+                width: 400,
+                height: 200,
               ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  CustomRoute(
-                    page: const LevelSelectionScreen(),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 170),
+              child: Align(
+                alignment: Alignment.center,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.purple.shade900,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    elevation: 30,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 30,
+                      vertical: 20,
+                    ),
                   ),
-                );
-              },
-              child: Text(
-                "Explore the Climate",
-                style: GoogleFonts.khand(
-                  textStyle: Theme.of(context).textTheme.displayLarge,
-                  fontSize: 22,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700,
-                  fontStyle: FontStyle.italic,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      CustomRoute(
+                        page: const LevelSelectionScreen(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    "Explore the Climate",
+                    style: GoogleFonts.khand(
+                      textStyle: Theme.of(context).textTheme.displayLarge,
+                      fontSize: 22,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
                 ),
               ),
             ),
-          ),
+          ],
         ),
       ),
     );

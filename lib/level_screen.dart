@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:video_player/video_player.dart';
 import 'package:t_minus_one/background.dart';
 
 class LevelSelectionScreen extends StatelessWidget {
@@ -10,6 +11,10 @@ class LevelSelectionScreen extends StatelessWidget {
     return BackGround(
       image: "assets/second.png",
       child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: const Icon(Icons.arrow_back),
+        ),
         backgroundColor: Colors.transparent,
         body: Stack(
           children: [
@@ -19,7 +24,6 @@ class LevelSelectionScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 10),
                   child: Column(
                     children: List.generate(4, (index) {
-                      int i = 3;
                       return Align(
                         alignment: index % 2 == 0
                             ? const Alignment(-0.2, 0.0)
@@ -29,37 +33,38 @@ class LevelSelectionScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  AlertDialog alert = AlertDialog(
+                                    contentPadding: const EdgeInsets.all(0),
+
+                                    // title: Text("Level ${index + 1}"),
+                                    content: ClipRRect(
+                                      borderRadius: BorderRadius.circular(20),
+                                      child: VideoPlayerWidget(
+                                        videoPath: message((index + 1)),
+                                      ),
+                                    ),
+                                  );
+
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return alert;
+                                    },
+                                  );
+                                },
                                 style: ElevatedButton.styleFrom(
                                   shape: const CircleBorder(),
                                   padding: const EdgeInsets.all(15),
                                   backgroundColor: Colors.purple.shade900,
                                 ),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        backgroundColor:
-                                            Colors.black.withOpacity(0.6),
-                                        behavior: SnackBarBehavior.floating,
-                                        content: Text(
-                                          message(i - index + 1),
-                                          style: const TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 18,
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                  child: Column(
-                                    children: [
-                                      Image.asset(
-                                        "assets/planet-earth.png",
-                                        scale: 12,
-                                      ),
-                                    ],
-                                  ),
+                                child: Column(
+                                  children: [
+                                    Image.asset(
+                                      "assets/planet-earth.png",
+                                      scale: 12,
+                                    ),
+                                  ],
                                 ),
                               ),
                               const SizedBox(height: 8),
@@ -71,7 +76,7 @@ class LevelSelectionScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Text(
-                                  'Level ${i - index + 1}',
+                                  'Level ${index + 1}',
                                   textAlign: TextAlign.center,
                                   style: GoogleFonts.khand(
                                     color: Colors.white,
@@ -96,16 +101,61 @@ class LevelSelectionScreen extends StatelessWidget {
   }
 }
 
+// VideoPlayerWidget for handling video playback
+class VideoPlayerWidget extends StatefulWidget {
+  final String videoPath;
+
+  const VideoPlayerWidget({required this.videoPath, super.key});
+
+  @override
+  _VideoPlayerWidgetState createState() => _VideoPlayerWidgetState();
+}
+
+class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
+  late VideoPlayerController _controller;
+  bool _isInitialized = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = VideoPlayerController.asset(widget.videoPath)
+      ..initialize().then((_) {
+        setState(() {
+          _isInitialized = true;
+        });
+        _controller
+            .play(); // Automatically play the video once it's initialized
+      });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return _isInitialized
+        ? AspectRatio(
+            aspectRatio: _controller.value.aspectRatio,
+            child: VideoPlayer(_controller),
+          )
+        : const Center(child: CircularProgressIndicator());
+  }
+}
+
+// Helper function to generate messages
 String message(int level) {
   switch (level) {
     case 1:
-      return 'Greeenhouse gases are increasing';
+      return 'assets/video.mp4';
     case 2:
-      return 'Carbon sequestration is decreasing';
+      return 'assets/nasa.mp4';
     case 3:
-      return 'Wetlands are disappearing';
+      return 'assets/video.mp4';
     case 4:
-      return 'Population is increasing';
+      return 'assets/nasa.mp4';
     default:
       return 'Unknown';
   }

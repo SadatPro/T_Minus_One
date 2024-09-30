@@ -16,6 +16,8 @@ dependencies:
   google_fonts: ^6.2.1
   animations: ^2.0.0
   iconsax: ^0.0.8
+  video_player: ^2.9.1
+  flick_video_player: ^0.9.0
 
 dev_dependencies:
   flutter_test:
