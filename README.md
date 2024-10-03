@@ -50,3 +50,37 @@ To view the **T_Minus_1** app, follow these steps:
 1. Clone the repository:
    ```bash
    git clone https://github.com/YourUsername/t_minus_1.git
+
+   cd t_minus_1
+   flutter pub get
+   flutter run
+
+
+## 🎯 App Goals
+The T_Minus_1 app aims to:
+
+- Raise Climate Awareness: Through interactive learning, visuals, and data-driven experiences.
+- Educate Users: On the harmful effects of methane and CO₂ emissions on the environment.
+- Inspire Action: Encourage users to take action in their communities to reduce greenhouse gases.
+
+## 📚 Future Developments
+Planned features include:
+
+- New Levels: Featuring additional datasets and more complex interactions.
+- User Contributions: Allowing users to submit local environmental data to raise awareness of climate change in their communities.
+- Social Sharing: Enabling users to share their climate stories directly from the app.
+
+## 👥 Team Members
+- Faiyaz Khan Sami - [Team Leader & Researcher]
+- Abid Khan Nishat - [Researcher & Developer]
+- Hafizur Rahman - [Full Stack App Developer(Flutter)]
+- Sadat Mahmud - [Video Editor & UI Designer]
+- Zakia Sultana Nisa - [Script Writer & Storyteller]
+
+## 🌐 Links
+NASA Space Apps Challenge 2024
+GitHub Repository
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
