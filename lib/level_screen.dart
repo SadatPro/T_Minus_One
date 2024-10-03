@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:t_minus_one/chat_screen.dart';
+import 'package:t_minus_one/custome_route.dart';
+import 'package:t_minus_one/user_interection.dart';
 import 'package:video_player/video_player.dart';
 import 'package:t_minus_one/background.dart';
 
@@ -12,8 +15,16 @@ class LevelSelectionScreen extends StatelessWidget {
       image: "assets/second.png",
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.push(
+              context,
+              CustomRoute(
+                page: ChatScreen(),
+              ),
+            );
+          },
+          backgroundColor: Colors.purple.shade900,
+          child: const Icon(Icons.chat, color: Colors.white),
         ),
         backgroundColor: Colors.transparent,
         body: Stack(
@@ -34,24 +45,33 @@ class LevelSelectionScreen extends StatelessWidget {
                             children: [
                               ElevatedButton(
                                 onPressed: () {
-                                  AlertDialog alert = AlertDialog(
-                                    contentPadding: const EdgeInsets.all(0),
-
-                                    // title: Text("Level ${index + 1}"),
-                                    content: ClipRRect(
-                                      borderRadius: BorderRadius.circular(20),
-                                      child: VideoPlayerWidget(
-                                        videoPath: message((index + 1)),
+                                  if (index == 1) {
+                                    Navigator.push(
+                                      context,
+                                      CustomRoute(
+                                        page: const CO2Interaction(),
                                       ),
-                                    ),
-                                  );
+                                    );
+                                  } else {
+                                    AlertDialog alert = AlertDialog(
+                                      contentPadding: const EdgeInsets.all(0),
 
-                                  showDialog(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return alert;
-                                    },
-                                  );
+                                      // title: Text("Level ${index + 1}"),
+                                      content: ClipRRect(
+                                        borderRadius: BorderRadius.circular(20),
+                                        child: VideoPlayerWidget(
+                                          videoPath: message((index + 1)),
+                                        ),
+                                      ),
+                                    );
+
+                                    showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return alert;
+                                      },
+                                    );
+                                  }
                                 },
                                 style: ElevatedButton.styleFrom(
                                   shape: const CircleBorder(),
@@ -150,10 +170,10 @@ String message(int level) {
   switch (level) {
     case 1:
       return 'assets/video.mp4';
-    case 2:
-      return 'assets/nasa.mp4';
+    // case 2:
+    //   return 'assets/video.mp4';
     case 3:
-      return 'assets/video.mp4';
+      return 'assets/methen.mp4';
     case 4:
       return 'assets/nasa.mp4';
     default:
