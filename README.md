@@ -1,7 +1,5 @@
 # T_Minus_1 - NASA Space Apps Challenge 2024
 
-![App Logo](./assets/logo.png) <!-- Add a path to your logo here -->
-
 **T_Minus_1** is an interactive and educational app developed for the NASA Space Apps Challenge 2024. The app focuses on raising awareness about climate change and its impact, specifically methane (CH₄) emissions and air-sea CO₂ flux. It combines storytelling, interactive visuals, and engaging games to educate users on the role of greenhouse gases and their effect on our planet.
 
 ## 🌍 App Overview
@@ -39,12 +37,13 @@ The app is designed for:
 These datasets were used to create the interactive levels and provide a real-world connection between climate data and user actions.
 
 ## 📱 App Screenshots
+<img width="905" alt="Screenshot 2024-10-04 at 2 39 55 AM" src="https://github.com/user-attachments/assets/4a8147fc-6eaf-481e-8dcb-f72f274c6c1c">
+<img width="905" alt="Screenshot 2024-10-04 at 2 39 45 AM" src="https://github.com/user-attachments/assets/8ef281d8-67c8-4868-be04-32e604dcf9f3">
+<img width="905" alt="Screenshot 2024-10-04 at 2 39 38 AM" src="https://github.com/user-attachments/assets/8ac214fe-c26f-425f-8006-da74bff1a532">
+<img width="905" alt="Screenshot 2024-10-04 at 2 39 32 AM" src="https://github.com/user-attachments/assets/b418496e-8170-45a5-829b-fd17b3c0c583">
 
-![Home Screen](./assets/home_screen.png) <!-- Add relevant screenshots -->
-![Level 1 - Greenhouse Gases](./assets/level_1.png)
 
 ## 🛠 How to View the App
-
 To view the **T_Minus_1** app, follow these steps:
 
 1. Clone the repository:
@@ -54,7 +53,6 @@ To view the **T_Minus_1** app, follow these steps:
    cd t_minus_1
    flutter pub get
    flutter run
-
 
 ## 🎯 App Goals
 The T_Minus_1 app aims to:
