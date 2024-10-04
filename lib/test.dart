@@ -19,7 +19,6 @@ class _CalculatorHomeState extends State<CalculatorHome> {
         double.tryParse(_methaneEmissionsController.text) ?? 0.0;
 
     setState(() {
-      // Example formula for calculation
       _result = co2Flux * 0.5 + methaneEmissions * 0.3;
     });
   }
