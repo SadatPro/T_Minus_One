@@ -2,6 +2,17 @@
 
 **T_Minus_1** is an interactive and educational app developed for the NASA Space Apps Challenge 2024. The app focuses on raising awareness about climate change and its impact, specifically methane (CH₄) emissions and air-sea CO₂ flux. It combines storytelling, interactive visuals, and engaging games to educate users on the role of greenhouse gases and their effect on our planet.
 
+## 🛠 How to View the App
+To view the **T_Minus_1** app, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/YourUsername/t_minus_1.git
+
+   cd t_minus_1
+   flutter pub get
+   flutter run
+
 ## 🌍 App Overview
 
 In the **T_Minus_1** app, users embark on an educational journey where they learn about critical environmental issues. The app integrates climate change data from NASA and other sources to present facts in a way that's engaging and easy to understand.
@@ -41,17 +52,6 @@ These datasets were used to create the interactive levels and provide a real-wor
 <img width="905" alt="Screenshot 2024-10-04 at 2 39 38 AM" src="https://github.com/user-attachments/assets/8ac214fe-c26f-425f-8006-da74bff1a532">
 <img width="905" alt="Screenshot 2024-10-04 at 2 39 45 AM" src="https://github.com/user-attachments/assets/8ef281d8-67c8-4868-be04-32e604dcf9f3">
 <img width="905" alt="Screenshot 2024-10-04 at 2 39 55 AM" src="https://github.com/user-attachments/assets/4a8147fc-6eaf-481e-8dcb-f72f274c6c1c">
-
-## 🛠 How to View the App
-To view the **T_Minus_1** app, follow these steps:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/YourUsername/t_minus_1.git
-
-   cd t_minus_1
-   flutter pub get
-   flutter run
 
 ## 🎯 App Goals
 The T_Minus_1 app aims to:
