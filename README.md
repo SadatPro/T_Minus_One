@@ -5,7 +5,16 @@
 ## 🛠 How to View the App
 To view the **T_Minus_1** app, follow these steps:
 
-1. Clone the repository:
+1. Prerequisites
+
+Make sure you have the following tools installed on your machine before proceeding:
+
+- [Flutter SDK](https://flutter.dev/docs/get-started/install) (Ensure the latest stable version is installed)
+- [Dart SDK](https://dart.dev/get-dart) (comes bundled with Flutter)
+- [Android Studio](https://developer.android.com/studio) or [Visual Studio Code](https://code.visualstudio.com/) (for IDE)
+- [Xcode](https://developer.apple.com/xcode/) (for iOS development on macOS)
+
+2. Clone the repository:
    ```bash
    git clone https://github.com/YourUsername/t_minus_1.git
 
