@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:t_minus_one/chat_screen.dart';
 import 'package:t_minus_one/custome_route.dart';
+import 'package:t_minus_one/test.dart';
 import 'package:t_minus_one/user_interection.dart';
 import 'package:video_player/video_player.dart';
 import 'package:t_minus_one/background.dart';
@@ -14,17 +15,37 @@ class LevelSelectionScreen extends StatelessWidget {
     return BackGround(
       image: "assets/second.png",
       child: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              CustomRoute(
-                page: ChatScreen(),
-              ),
-            );
-          },
-          backgroundColor: Colors.purple.shade900,
-          child: const Icon(Icons.chat, color: Colors.white),
+        floatingActionButton: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            FloatingActionButton(
+              heroTag: 'calculatorButton', // Unique tag
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  CustomRoute(
+                    page: const CalculatorHome(),
+                  ),
+                );
+              },
+              backgroundColor: Colors.purple.shade900,
+              child: const Icon(Icons.calculate, color: Colors.white),
+            ),
+            const SizedBox(height: 10),
+            FloatingActionButton(
+              heroTag: 'chatButton', // Unique tag
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  CustomRoute(
+                    page: const ChatScreen(),
+                  ),
+                );
+              },
+              backgroundColor: Colors.purple.shade900,
+              child: const Icon(Icons.chat, color: Colors.white),
+            ),
+          ],
         ),
         backgroundColor: Colors.transparent,
         body: Stack(
@@ -55,8 +76,6 @@ class LevelSelectionScreen extends StatelessWidget {
                                   } else {
                                     AlertDialog alert = AlertDialog(
                                       contentPadding: const EdgeInsets.all(0),
-
-                                      // title: Text("Level ${index + 1}"),
                                       content: ClipRRect(
                                         borderRadius: BorderRadius.circular(20),
                                         child: VideoPlayerWidget(
@@ -78,13 +97,16 @@ class LevelSelectionScreen extends StatelessWidget {
                                   padding: const EdgeInsets.all(15),
                                   backgroundColor: Colors.purple.shade900,
                                 ),
-                                child: Column(
-                                  children: [
-                                    Image.asset(
-                                      "assets/planet-earth.png",
-                                      scale: 12,
-                                    ),
-                                  ],
+                                child: Hero(
+                                  tag: 'level${index + 1}',
+                                  child: Column(
+                                    children: [
+                                      Image.asset(
+                                        "assets/planet-earth.png",
+                                        scale: 12,
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                               const SizedBox(height: 8),
@@ -143,8 +165,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
         setState(() {
           _isInitialized = true;
         });
-        _controller
-            .play(); // Automatically play the video once it's initialized
+        _controller.play();
       });
   }
 
@@ -170,8 +191,6 @@ String message(int level) {
   switch (level) {
     case 1:
       return 'assets/video.mp4';
-    // case 2:
-    //   return 'assets/video.mp4';
     case 3:
       return 'assets/methen.mp4';
     case 4:
